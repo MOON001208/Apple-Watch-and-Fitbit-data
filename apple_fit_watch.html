@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="맞갖다">
+
+<title>apple_fb_watch</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="apple_fit_watch_files/libs/clipboard/clipboard.min.js"></script>
+<script src="apple_fit_watch_files/libs/quarto-html/quarto.js"></script>
+<script src="apple_fit_watch_files/libs/quarto-html/popper.min.js"></script>
+<script src="apple_fit_watch_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="apple_fit_watch_files/libs/quarto-html/anchor.min.js"></script>
+<link href="apple_fit_watch_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="apple_fit_watch_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="apple_fit_watch_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="apple_fit_watch_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="apple_fit_watch_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="apple_fit_watch_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="apple_fit_watch_files/libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">apple_fb_watch</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>맞갖다 </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>https://www.kaggle.com/datasets/aleespinosa/apple-watch-and-fitbit-data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>aw_fb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'aw_fb_data.csv'</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(aw_fb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                ...1                  age               gender 
+                   0                    0                    0 
+              height               weight                steps 
+                   0                    0                    0 
+           hear_rate             calories             distance 
+                   0                    0                    0 
+       entropy_heart        entropy_setps        resting_heart 
+                   0                    0                    0 
+    corr_heart_steps           norm_heart   intensity_karvonen 
+                   0                    0                    0 
+       sd_norm_heart steps_times_distance               device 
+                   0                    0                    0 
+            activity 
+                   0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aw_fb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 19
+   ...1   age gender height weight steps hear_rate calories distance
+  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1     1    20      1    168   65.4  10.8      78.5    0.345  0.00833
+2     2    20      1    168   65.4  11.5      78.5    3.29   0.00890
+3     3    20      1    168   65.4  12.2      78.5    9.48   0.00947
+4     4    20      1    168   65.4  12.9      78.6   10.2    0.0100 
+5     5    20      1    168   65.4  13.6      78.7   10.8    0.0106 
+6     6    20      1    168   65.4  14.3      78.8   11.5    0.0112 
+# ℹ 10 more variables: entropy_heart &lt;dbl&gt;, entropy_setps &lt;dbl&gt;,
+#   resting_heart &lt;dbl&gt;, corr_heart_steps &lt;dbl&gt;, norm_heart &lt;dbl&gt;,
+#   intensity_karvonen &lt;dbl&gt;, sd_norm_heart &lt;dbl&gt;, steps_times_distance &lt;dbl&gt;,
+#   device &lt;chr&gt;, activity &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>결측치 없음</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'flextable'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    compose</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터 프레임 생성</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>variable_info <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  변수명 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"...1"</span>, <span class="st">"age"</span>, <span class="st">"gender"</span>, <span class="st">"height"</span>, <span class="st">"weight"</span>, <span class="st">"steps"</span>, <span class="st">"hear_rate"</span>, <span class="st">"calories"</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"distance"</span>, <span class="st">"entropy_heart"</span>, <span class="st">"entropy_setps"</span>, <span class="st">"resting_heart"</span>, <span class="st">"corr_heart_steps"</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"norm_heart"</span>, <span class="st">"intensity_karvonen"</span>, <span class="st">"sd_norm_heart"</span>, <span class="st">"steps_times_distance"</span>, <span class="st">"device"</span>, <span class="st">"activity"</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  한국어_해석 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"고유 식별자 (ID)"</span>, <span class="st">"나이 (연령)"</span>, <span class="st">"성별 (1: 남성, 0: 여성)"</span>, <span class="st">"키 (cm)"</span>, <span class="st">"체중 (kg)"</span>, <span class="st">"걸음 수"</span>, </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">"심박수"</span>, <span class="st">"소모 칼로리"</span>, <span class="st">"이동 거리 (km)"</span>, <span class="st">"심박수 엔트로피 (심박수의 복잡성 또는 불규칙성 지표)"</span>, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"걸음수 엔트로피 (걸음 패턴의 복잡성 또는 불규칙성 지표)"</span>, <span class="st">"안정 시 심박수"</span>, <span class="st">"심박수와 걸음수 간 상관계수"</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"정규화된 심박수"</span>, <span class="st">"Karvonen 방식으로 계산된 운동 강도 지표"</span>, <span class="st">"정규화된 심박수의 표준편차"</span>, </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"걸음 수와 이동 거리의 곱"</span>, <span class="st">"사용된 장치 (예: Apple Watch)"</span>, <span class="st">"활동 유형 (예: Lying, Sitting, Running 등)"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># flextable 적용</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">flextable</span>(variable_info) <span class="sc">|&gt;</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autofit</span>() <span class="sc">|&gt;</span>  <span class="co"># 자동 크기 조정</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_vanilla</span>() <span class="sc">|&gt;</span>  <span class="co"># 가독성 좋은 테마 적용</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_caption</span>(<span class="st">"explain variable"</span>)  <span class="co"># 테이블 제목 추가</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-0a6d2a8a{}.cl-0a6552e2{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0a655300{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0a6944d8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0a6962e2{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a6962ec{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a6962f6{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a6962f7{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696300{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696301{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a69630a{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a69630b{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696314{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a69631e{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a69631f{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696328{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696329{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696332{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696333{width:1.754in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0a696334{width:3.319in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-0a6d2a8a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-0a6962e2"><p class="cl-0a6944d8"><span class="cl-0a6552e2">변수명</span></p></th><th class="cl-0a6962ec"><p class="cl-0a6944d8"><span class="cl-0a6552e2">한국어_해석</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0a6962f6"><p class="cl-0a6944d8"><span class="cl-0a655300">...1</span></p></td><td class="cl-0a6962f7"><p class="cl-0a6944d8"><span class="cl-0a655300">고유 식별자 (ID)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">age</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">나이 (연령)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">gender</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">성별 (1: 남성, 0: 여성)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">height</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">키 (cm)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">weight</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">체중 (kg)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a69630a"><p class="cl-0a6944d8"><span class="cl-0a655300">steps</span></p></td><td class="cl-0a69630b"><p class="cl-0a6944d8"><span class="cl-0a655300">걸음 수</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696314"><p class="cl-0a6944d8"><span class="cl-0a655300">hear_rate</span></p></td><td class="cl-0a69631e"><p class="cl-0a6944d8"><span class="cl-0a655300">심박수</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a69631f"><p class="cl-0a6944d8"><span class="cl-0a655300">calories</span></p></td><td class="cl-0a696328"><p class="cl-0a6944d8"><span class="cl-0a655300">소모 칼로리</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">distance</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">이동 거리 (km)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">entropy_heart</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">심박수 엔트로피 (심박수의 복잡성 또는 불규칙성 지표)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">entropy_setps</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">걸음수 엔트로피 (걸음 패턴의 복잡성 또는 불규칙성 지표)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696329"><p class="cl-0a6944d8"><span class="cl-0a655300">resting_heart</span></p></td><td class="cl-0a696332"><p class="cl-0a6944d8"><span class="cl-0a655300">안정 시 심박수</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696314"><p class="cl-0a6944d8"><span class="cl-0a655300">corr_heart_steps</span></p></td><td class="cl-0a69631e"><p class="cl-0a6944d8"><span class="cl-0a655300">심박수와 걸음수 간 상관계수</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696314"><p class="cl-0a6944d8"><span class="cl-0a655300">norm_heart</span></p></td><td class="cl-0a69631e"><p class="cl-0a6944d8"><span class="cl-0a655300">정규화된 심박수</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696329"><p class="cl-0a6944d8"><span class="cl-0a655300">intensity_karvonen</span></p></td><td class="cl-0a696332"><p class="cl-0a6944d8"><span class="cl-0a655300">Karvonen 방식으로 계산된 운동 강도 지표</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696314"><p class="cl-0a6944d8"><span class="cl-0a655300">sd_norm_heart</span></p></td><td class="cl-0a69631e"><p class="cl-0a6944d8"><span class="cl-0a655300">정규화된 심박수의 표준편차</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696314"><p class="cl-0a6944d8"><span class="cl-0a655300">steps_times_distance</span></p></td><td class="cl-0a69631e"><p class="cl-0a6944d8"><span class="cl-0a655300">걸음 수와 이동 거리의 곱</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696300"><p class="cl-0a6944d8"><span class="cl-0a655300">device</span></p></td><td class="cl-0a696301"><p class="cl-0a6944d8"><span class="cl-0a655300">사용된 장치 (예: Apple Watch)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0a696333"><p class="cl-0a6944d8"><span class="cl-0a655300">activity</span></p></td><td class="cl-0a696334"><p class="cl-0a6944d8"><span class="cl-0a655300">활동 유형 (예: Lying, Sitting, Running 등)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aw_fb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ...1           age            gender           height     
+ Min.   :   1   Min.   :18.00   Min.   :0.0000   Min.   :143.0  
+ 1st Qu.:1567   1st Qu.:23.00   1st Qu.:0.0000   1st Qu.:160.0  
+ Median :3132   Median :28.00   Median :0.0000   Median :168.0  
+ Mean   :3132   Mean   :29.16   Mean   :0.4765   Mean   :169.7  
+ 3rd Qu.:4698   3rd Qu.:33.00   3rd Qu.:1.0000   3rd Qu.:180.0  
+ Max.   :6264   Max.   :56.00   Max.   :1.0000   Max.   :191.0  
+     weight           steps           hear_rate          calories       
+ Min.   : 43.00   Min.   :   1.00   Min.   :  2.222   Min.   : 0.05627  
+ 1st Qu.: 60.00   1st Qu.:   5.16   1st Qu.: 75.598   1st Qu.: 0.73587  
+ Median : 68.00   Median :  10.09   Median : 77.268   Median : 4.00000  
+ Mean   : 69.61   Mean   : 109.56   Mean   : 86.142   Mean   :19.47182  
+ 3rd Qu.: 77.30   3rd Qu.: 105.85   3rd Qu.: 95.669   3rd Qu.:20.50000  
+ Max.   :115.00   Max.   :1714.00   Max.   :194.333   Max.   :97.50000  
+    distance        entropy_heart   entropy_setps   resting_heart   
+ Min.   :  0.0004   Min.   :0.000   Min.   :0.000   Min.   :  3.00  
+ 1st Qu.:  0.0191   1st Qu.:6.109   1st Qu.:5.909   1st Qu.: 58.13  
+ Median :  0.1817   Median :6.190   Median :6.157   Median : 75.00  
+ Mean   : 13.8326   Mean   :6.030   Mean   :5.740   Mean   : 65.87  
+ 3rd Qu.: 15.6972   3rd Qu.:6.248   3rd Qu.:6.248   3rd Qu.: 76.14  
+ Max.   :335.0000   Max.   :6.476   Max.   :6.476   Max.   :155.00  
+ corr_heart_steps    norm_heart      intensity_karvonen  sd_norm_heart    
+ Min.   :-1.0000   Min.   :-76.000   Min.   :-2.714286   Min.   : 0.0000  
+ 1st Qu.:-0.4673   1st Qu.:  1.149   1st Qu.: 0.009819   1st Qu.: 0.2647  
+ Median : 0.6658   Median :  9.820   Median : 0.079529   Median : 2.8935  
+ Mean   : 0.3064   Mean   : 20.272   Mean   : 0.155479   Mean   : 8.1108  
+ 3rd Qu.: 1.0000   3rd Qu.: 27.077   3rd Qu.: 0.211868   3rd Qu.: 9.6797  
+ Max.   : 1.0000   Max.   :156.319   Max.   : 1.297980   Max.   :74.4579  
+ steps_times_distance    device            activity        
+ Min.   :    0.00     Length:6264        Length:6264       
+ 1st Qu.:    0.66     Class :character   Class :character  
+ Median :   13.37     Mode  :character   Mode  :character  
+ Mean   :  590.04                                          
+ 3rd Qu.:   93.73                                          
+ Max.   :51520.00                                          </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>descr<span class="sc">::</span><span class="fu">freq</span>(aw_fb<span class="sc">$</span>device, <span class="at">plot=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>aw_fb$device 
+            Frequency Percent
+apple watch      3656   58.37
+fitbit           2608   41.63
+Total            6264  100.00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>descr<span class="sc">::</span><span class="fu">freq</span>(aw_fb<span class="sc">$</span>activity, <span class="at">plot=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>aw_fb$activity 
+               Frequency Percent
+Lying               1379   22.01
+Running 3 METs       950   15.17
+Running 5 METs      1002   16.00
+Running 7 METs      1114   17.78
+Self Pace walk       889   14.19
+Sitting              930   14.85
+Total               6264  100.00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(aw_fb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">aw_fb</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">6264</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">device</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">activity</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">…1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3132.50</td>
+<td style="text-align: right;">1808.41</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1566.75</td>
+<td style="text-align: right;">3132.50</td>
+<td style="text-align: right;">4698.25</td>
+<td style="text-align: right;">6264.00</td>
+<td style="text-align: left;">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">29.16</td>
+<td style="text-align: right;">8.91</td>
+<td style="text-align: right;">18.00</td>
+<td style="text-align: right;">23.00</td>
+<td style="text-align: right;">28.00</td>
+<td style="text-align: right;">33.00</td>
+<td style="text-align: right;">56.00</td>
+<td style="text-align: left;">▇▆▂▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">▇▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">height</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">169.71</td>
+<td style="text-align: right;">10.32</td>
+<td style="text-align: right;">143.00</td>
+<td style="text-align: right;">160.00</td>
+<td style="text-align: right;">168.00</td>
+<td style="text-align: right;">180.00</td>
+<td style="text-align: right;">191.00</td>
+<td style="text-align: left;">▁▆▆▇▃</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">weight</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">69.61</td>
+<td style="text-align: right;">13.45</td>
+<td style="text-align: right;">43.00</td>
+<td style="text-align: right;">60.00</td>
+<td style="text-align: right;">68.00</td>
+<td style="text-align: right;">77.30</td>
+<td style="text-align: right;">115.00</td>
+<td style="text-align: left;">▃▇▇▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">steps</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">109.56</td>
+<td style="text-align: right;">222.80</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">5.16</td>
+<td style="text-align: right;">10.09</td>
+<td style="text-align: right;">105.85</td>
+<td style="text-align: right;">1714.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hear_rate</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">86.14</td>
+<td style="text-align: right;">28.65</td>
+<td style="text-align: right;">2.22</td>
+<td style="text-align: right;">75.60</td>
+<td style="text-align: right;">77.27</td>
+<td style="text-align: right;">95.67</td>
+<td style="text-align: right;">194.33</td>
+<td style="text-align: left;">▁▇▅▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">calories</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">19.47</td>
+<td style="text-align: right;">27.31</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">20.50</td>
+<td style="text-align: right;">97.50</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">distance</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13.83</td>
+<td style="text-align: right;">45.94</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">15.70</td>
+<td style="text-align: right;">335.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">entropy_heart</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.03</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">6.11</td>
+<td style="text-align: right;">6.19</td>
+<td style="text-align: right;">6.25</td>
+<td style="text-align: right;">6.48</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">entropy_setps</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.74</td>
+<td style="text-align: right;">1.26</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">5.91</td>
+<td style="text-align: right;">6.16</td>
+<td style="text-align: right;">6.25</td>
+<td style="text-align: right;">6.48</td>
+<td style="text-align: left;">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">resting_heart</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">65.87</td>
+<td style="text-align: right;">21.20</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">58.13</td>
+<td style="text-align: right;">75.00</td>
+<td style="text-align: right;">76.14</td>
+<td style="text-align: right;">155.00</td>
+<td style="text-align: left;">▁▂▇▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">corr_heart_steps</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">-1.00</td>
+<td style="text-align: right;">-0.47</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">▃▁▂▂▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">norm_heart</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">20.27</td>
+<td style="text-align: right;">28.39</td>
+<td style="text-align: right;">-76.00</td>
+<td style="text-align: right;">1.15</td>
+<td style="text-align: right;">9.82</td>
+<td style="text-align: right;">27.08</td>
+<td style="text-align: right;">156.32</td>
+<td style="text-align: left;">▁▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">intensity_karvonen</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">-2.71</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: left;">▁▁▁▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sd_norm_heart</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.11</td>
+<td style="text-align: right;">12.54</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">2.89</td>
+<td style="text-align: right;">9.68</td>
+<td style="text-align: right;">74.46</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">steps_times_distance</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">590.04</td>
+<td style="text-align: right;">4063.84</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">13.37</td>
+<td style="text-align: right;">93.73</td>
+<td style="text-align: right;">51520.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>변수 19개, 6264개의 데이터<br>
+2개의 범주형 변수가 존재하고 나머지는 숫자형 변수<br>
+device의 경우에는 wapple watch와 fitbit 두가지 존재<br>
+activity의 경우에는 6가지 Lying이 가장 많으며 나머지는 고르게 분포 되어있음 이 변수가 아마 타겟변수가 될 듯</p>
+<p>나이는 18~56세까지 분포 젊은 층의 데이터가 많은 것으로 보임<br>
+성별의 비율은 동일<br>
+키는 143~191 까지 있으며 정규분포 형태<br>
+몸무게도 43~115 까지 있으며 정규분포 형태<br>
+걸음수는 1~1714보 까지 있으며 오른쪽으로 긴 꼬리의 형태<br>
+심박수는 2.22~194.33 까지 있으며 심각하게 낮은 수치는 이상치(오탈자)로 간주됌. 정규분포 모양을 띔<br>
+칼로리는 0.06~97.50 오른쪽으로 긴 꼬리형태<br>
+거리는 0~335.00 오른쪽으로 긴 꼬리 형태<br>
+entropy_heart, entropy_steps 는 왼쪽으로 긴 꼬리 형태 수치도 비슷함<br>
+안정시 심박수는 21.20~155.00 정규분포 형태<br>
+심박수와 걸음수의 상관관계는 왜 있는지 모르겠네<br>
+정규화된 심박수는 -76~156.32로 심박수와 분포가 유사함<br>
+운동강도는 -2.71~1.30 오른쪽으로 치우쳐져있지만 약간 정규분포 형태<br>
+정규화된 심박수의 표준편차는 0~74.46<br>
+걸음수 * 거리는 0~51520 으로 있음.</p>
+<section id="성별에-따른-활동유형" class="level3">
+<h3 class="anchored" data-anchor-id="성별에-따른-활동유형">성별에 따른 활동유형</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>aw_fb <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">as.factor</span>(gender)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_weight =</span> <span class="fu">mean</span>(weight),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_height =</span> <span class="fu">mean</span>(height),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_hear_rate =</span> <span class="fu">mean</span>(hear_rate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  gender mean_weight mean_height mean_hear_rate
+  &lt;fct&gt;        &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
+1 0             62.2        162.           88.7
+2 1             77.8        178.           83.3</code></pre>
+</div>
+</div>
+<p>체중과 신장을 고려했을 때 보통 여자가 남자보다 체중과 키가 작으므로 0은 여자 1은 남자라고 추측 해볼 수 있다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="ot">&lt;-</span> aw_fb <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">factor</span>(gender, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"female"</span>,<span class="st">"male"</span>)))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>descr<span class="sc">::</span><span class="fu">freq</span>(aw_fb1<span class="sc">$</span>gender,<span class="at">plot=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>aw_fb1$gender 
+       Frequency Percent
+female      3279   52.35
+male        2985   47.65
+Total       6264  100.00</code></pre>
+</div>
+</div>
+<section id="성별에-따른-활동지표표" class="level4">
+<h4 class="anchored" data-anchor-id="성별에-따른-활동지표표">성별에 따른 활동지표표</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender,activity) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>(),<span class="at">.groups=</span><span class="st">'drop'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>activity,<span class="at">y=</span>count,<span class="at">fill=</span>gender)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>,<span class="at">position=</span><span class="st">'dodge'</span>) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'activity by gender'</span>,<span class="at">y=</span><span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  gender count
+  &lt;fct&gt;  &lt;int&gt;
+1 female  3279
+2 male    2985</code></pre>
+</div>
+</div>
+<p>여성의 표본이 많아서 그런지 전체적으로 여자가 운동을 더 많이 하는 것으로 나타났다.<br>
+누워있는 것이 가장 많긴하지만 운동 중에서는 그 중 7 meter 달리기가 가장 많이 나왔다.</p>
+</section>
+</section>
+<section id="나이에-따른-걸음수" class="level3">
+<h3 class="anchored" data-anchor-id="나이에-따른-걸음수">나이에 따른 걸음수</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>steps))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>대체로 젊을 수록 걸음 수가 많다. 하지만 20대 후반과 30대 중반에서 걸음수가 적은걸 확인할 수 있다. 직장인이 많기때문일까? 40대 초반 데이터는 없는 것으로 확인된다.</p>
+<p>그럼 나이대 별로 활동량이 다른걸까?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">age =</span> <span class="fu">if_else</span>(age <span class="sc">&lt;</span><span class="dv">20</span>, <span class="st">'10~19'</span>,</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">if_else</span>(age<span class="sc">&lt;</span><span class="dv">30</span>, <span class="st">'20~29'</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">if_else</span>(age<span class="sc">&lt;</span><span class="dv">40</span>, <span class="st">'30~39'</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">if_else</span>(age<span class="sc">&lt;</span><span class="dv">50</span>, <span class="st">'40~49'</span>,<span class="st">'50~59'</span>))))) <span class="sc">|&gt;</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">fill=</span><span class="fu">as.factor</span>(activity)),<span class="at">position=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>20대와 30대의 데이터가 가장 많은 것을 확인해 볼 수 있다. 모든 연령대에서 Lying이 가장 높다. 20대 30대에서 7 METs와 5 METs의 빈도가 많이 높고 self pace walk가 가장 적다. 10대에서는 3 METs가 가장 높게 나타났다. 반면에 40대와 50대는 지표가 비슷한 것으로 확인된다. 달리는 지표가 많은 연령대인 10대~30대의 걸음수가 많은 것은 당연한 것 같다.</p>
+<p>걸음수와 활동유형의 관계가 있을까?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>steps, <span class="at">fill=</span>activity),<span class="at">position=</span><span class="st">'dodge'</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>activity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>활동량이 많아 질수록 높은 걸음수가 있는 것을 알 수 있다.</p>
+</section>
+<section id="생체활동-예측-모델링-로지스틱-랜포-knn" class="level3">
+<h3 class="anchored" data-anchor-id="생체활동-예측-모델링-로지스틱-랜포-knn">생체활동 예측 모델링 로지스틱, 랜포, knn</h3>
+<p>분석 목적: 생체활동 데이터를 토대로 activity를 예측하는 것이 분석의 목표</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(aw_fb,<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">as.factor</span>(activity)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggcorr</span>(aw_fb, <span class="at">label=</span><span class="cn">TRUE</span>,<span class="at">hjust=</span><span class="fl">0.75</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">color=</span><span class="st">'grey50'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="parsnip" class="level4">
+<h4 class="anchored" data-anchor-id="parsnip">parsnip</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.7     ✔ rsample      1.2.1
+✔ dials        1.3.0     ✔ tune         1.2.1
+✔ infer        1.0.7     ✔ workflows    1.1.4
+✔ modeldata    1.4.0     ✔ workflowsets 1.1.0
+✔ parsnip      1.2.1     ✔ yardstick    1.3.1
+✔ recipes      1.1.0     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ flextable::compose() masks purrr::compose()
+✖ scales::discard()    masks purrr::discard()
+✖ dplyr::filter()      masks stats::filter()
+✖ recipes::fixed()     masks stringr::fixed()
+✖ dplyr::lag()         masks stats::lag()
+✖ yardstick::spec()    masks readr::spec()
+✖ recipes::step()      masks stats::step()
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>multinom_reg_spec <span class="ot">&lt;-</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">multinom_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">'nnet'</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>kknn_spec <span class="ot">&lt;-</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">'kknn'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">'classification'</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>rand_forest_spec <span class="ot">&lt;-</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rand_forest</span>(<span class="at">mtry =</span> <span class="fu">tune</span>(), <span class="at">min_n =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">'ranger'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">'classification'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="split-data" class="level4">
+<h4 class="anchored" data-anchor-id="split-data">split data</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>aw_fb1 <span class="ot">&lt;-</span> aw_fb1 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">activity =</span> <span class="fu">as_factor</span>(activity))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(aw_fb1, <span class="at">strata =</span> <span class="st">'activity'</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> <span class="fu">training</span>(split)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">testing</span>(split)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>aw_fb1<span class="sc">|&gt;</span> <span class="fu">group_by</span>(activity) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="fu">nrow</span>(aw_fb1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  activity       `n()/nrow(aw_fb1)`
+  &lt;fct&gt;                       &lt;dbl&gt;
+1 Lying                       0.220
+2 Sitting                     0.148
+3 Self Pace walk              0.142
+4 Running 3 METs              0.152
+5 Running 5 METs              0.160
+6 Running 7 METs              0.178</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>train <span class="sc">|&gt;</span> <span class="fu">group_by</span>(activity) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="fu">nrow</span>(train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  activity       `n()/nrow(train)`
+  &lt;fct&gt;                      &lt;dbl&gt;
+1 Lying                      0.220
+2 Sitting                    0.148
+3 Self Pace walk             0.142
+4 Running 3 METs             0.152
+5 Running 5 METs             0.160
+6 Running 7 METs             0.178</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>test <span class="sc">|&gt;</span> <span class="fu">group_by</span>(activity) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="fu">nrow</span>(test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  activity       `n()/nrow(test)`
+  &lt;fct&gt;                     &lt;dbl&gt;
+1 Lying                     0.220
+2 Sitting                   0.149
+3 Self Pace walk            0.142
+4 Running 3 METs            0.152
+5 Running 5 METs            0.160
+6 Running 7 METs            0.178</code></pre>
+</div>
+</div>
+<p>#resampling</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>vfold <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train, <span class="at">v=</span><span class="dv">5</span>, <span class="at">strata=</span><span class="st">'activity'</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>control <span class="ot">&lt;-</span> <span class="fu">control_resamples</span>(<span class="at">save_pred=</span>T,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">save_workflow=</span>T,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">event_level =</span> <span class="st">'first'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="recipe" class="level4">
+<h4 class="anchored" data-anchor-id="recipe">recipe</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(activity<span class="sc">~</span>., <span class="at">data=</span> train) <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(<span class="st">`</span><span class="at">...1</span><span class="st">`</span>,device, <span class="at">new_role=</span><span class="st">'id'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_pca</span>(hear_rate,norm_heart,intensity_karvonen, <span class="at">num_comp =</span> <span class="dv">1</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>knn_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(activity<span class="sc">~</span>., <span class="at">data=</span>train) <span class="sc">|&gt;</span> </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(<span class="st">`</span><span class="at">...1</span><span class="st">`</span>,device, <span class="at">new_role=</span><span class="st">'id'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_mutate</span>(<span class="at">gender =</span> <span class="fu">as.numeric</span>(gender))</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>rand_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(activity<span class="sc">~</span>., <span class="at">data=</span>train) <span class="sc">|&gt;</span> </span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(<span class="st">`</span><span class="at">...1</span><span class="st">`</span>,device, <span class="at">new_role=</span><span class="st">'id'</span>)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="fu">prep</span>(rec) <span class="sc">|&gt;</span> <span class="fu">bake</span>(train) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ...1           age             gender         height       
+ Min.   :   1   Min.   :-1.2416   female:2421   Min.   :-2.5829  
+ 1st Qu.:1566   1st Qu.:-0.6825   male  :2274   1st Qu.:-0.9444  
+ Median :3116   Median :-0.2353                 Median :-0.1733  
+ Mean   :3127   Mean   : 0.0000                 Mean   : 0.0000  
+ 3rd Qu.:4691   3rd Qu.: 0.3238                 3rd Qu.: 0.9833  
+ Max.   :6260   Max.   : 3.0072                 Max.   : 2.0435  
+     weight            steps             calories           distance       
+ Min.   :-1.9805   Min.   :-0.48778   Min.   :-0.70831   Min.   :-0.30210  
+ 1st Qu.:-0.7173   1st Qu.:-0.46911   1st Qu.:-0.68342   1st Qu.:-0.30170  
+ Median :-0.1229   Median :-0.44679   Median :-0.56433   Median :-0.29835  
+ Mean   : 0.0000   Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.00000  
+ 3rd Qu.: 0.5681   3rd Qu.:-0.02117   3rd Qu.: 0.03809   3rd Qu.: 0.03135  
+ Max.   : 3.3695   Max.   : 6.84345   Max.   : 2.84937   Max.   : 6.81403  
+ entropy_heart      entropy_setps     resting_heart     corr_heart_steps 
+ Min.   :-8.06357   Min.   :-4.5469   Min.   :-2.9574   Min.   :-1.6995  
+ 1st Qu.: 0.09923   1st Qu.: 0.1355   1st Qu.:-0.3625   1st Qu.:-0.9812  
+ Median : 0.20787   Median : 0.3411   Median : 0.4313   Median : 0.4600  
+ Mean   : 0.00000   Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000  
+ 3rd Qu.: 0.28552   3rd Qu.: 0.4037   3rd Qu.: 0.4849   3rd Qu.: 0.8937  
+ Max.   : 0.58993   Max.   : 0.5842   Max.   : 4.1965   Max.   : 0.8937  
+ sd_norm_heart     steps_times_distance         device    
+ Min.   :-0.6467   Min.   :-0.1459      apple watch:2747  
+ 1st Qu.:-0.6258   1st Qu.:-0.1457      fitbit     :1948  
+ Median :-0.4184   Median :-0.1427                        
+ Mean   : 0.0000   Mean   : 0.0000                        
+ 3rd Qu.: 0.1330   3rd Qu.:-0.1233                        
+ Max.   : 5.2283   Max.   :12.1601                        
+           activity         PC1          
+ Lying         :1034   Min.   :-10.2114  
+ Sitting       : 697   1st Qu.: -1.0037  
+ Self Pace walk: 666   Median : -0.5829  
+ Running 3 METs: 712   Mean   :  0.0000  
+ Running 5 METs: 751   3rd Qu.:  0.3966  
+ Running 7 METs: 835   Max.   :  7.4920  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prep</span>(knn_rec) <span class="sc">|&gt;</span> <span class="fu">bake</span>(train) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ...1           age              gender          height       
+ Min.   :   1   Min.   :-1.2416   Min.   :1.000   Min.   :-2.5829  
+ 1st Qu.:1566   1st Qu.:-0.6825   1st Qu.:1.000   1st Qu.:-0.9444  
+ Median :3116   Median :-0.2353   Median :1.000   Median :-0.1733  
+ Mean   :3127   Mean   : 0.0000   Mean   :1.484   Mean   : 0.0000  
+ 3rd Qu.:4691   3rd Qu.: 0.3238   3rd Qu.:2.000   3rd Qu.: 0.9833  
+ Max.   :6260   Max.   : 3.0072   Max.   :2.000   Max.   : 2.0435  
+     weight            steps            hear_rate          calories       
+ Min.   :-1.9805   Min.   :-0.48778   Min.   :-2.9009   Min.   :-0.70831  
+ 1st Qu.:-0.7173   1st Qu.:-0.46911   1st Qu.:-0.3677   1st Qu.:-0.68342  
+ Median :-0.1229   Median :-0.44679   Median :-0.3092   Median :-0.56433  
+ Mean   : 0.0000   Mean   : 0.00000   Mean   : 0.0000   Mean   : 0.00000  
+ 3rd Qu.: 0.5681   3rd Qu.:-0.02117   3rd Qu.: 0.3358   3rd Qu.: 0.03809  
+ Max.   : 3.3695   Max.   : 6.84345   Max.   : 3.7696   Max.   : 2.84937  
+    distance        entropy_heart      entropy_setps     resting_heart    
+ Min.   :-0.30210   Min.   :-8.06357   Min.   :-4.5469   Min.   :-2.9574  
+ 1st Qu.:-0.30170   1st Qu.: 0.09923   1st Qu.: 0.1355   1st Qu.:-0.3625  
+ Median :-0.29835   Median : 0.20787   Median : 0.3411   Median : 0.4313  
+ Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.0000   Mean   : 0.0000  
+ 3rd Qu.: 0.03135   3rd Qu.: 0.28552   3rd Qu.: 0.4037   3rd Qu.: 0.4849  
+ Max.   : 6.81403   Max.   : 0.58993   Max.   : 0.5842   Max.   : 4.1965  
+ corr_heart_steps    norm_heart      intensity_karvonen sd_norm_heart    
+ Min.   :-1.6995   Min.   :-3.3906   Min.   :-13.5018   Min.   :-0.6467  
+ 1st Qu.:-0.9812   1st Qu.:-0.6745   1st Qu.: -0.6854   1st Qu.:-0.6258  
+ Median : 0.4600   Median :-0.3567   Median : -0.3474   Median :-0.4184  
+ Mean   : 0.0000   Mean   : 0.0000   Mean   :  0.0000   Mean   : 0.0000  
+ 3rd Qu.: 0.8937   3rd Qu.: 0.2408   3rd Qu.:  0.2636   3rd Qu.: 0.1330  
+ Max.   : 0.8937   Max.   : 4.7879   Max.   :  5.3754   Max.   : 5.2283  
+ steps_times_distance         device               activity   
+ Min.   :-0.1459      apple watch:2747   Lying         :1034  
+ 1st Qu.:-0.1457      fitbit     :1948   Sitting       : 697  
+ Median :-0.1427                         Self Pace walk: 666  
+ Mean   : 0.0000                         Running 3 METs: 712  
+ 3rd Qu.:-0.1233                         Running 5 METs: 751  
+ Max.   :12.1601                         Running 7 METs: 835  </code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-workflow-and-fit" class="level4">
+<h4 class="anchored" data-anchor-id="logistic-workflow-and-fit">logistic workflow and fit</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>multinom_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> <span class="fu">add_model</span>(multinom_reg_spec) <span class="sc">|&gt;</span> <span class="fu">add_recipe</span>(rec)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>multinom_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(multinom_wflow, train)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_fit_engine</span>(multinom_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+nnet::multinom(formula = ..y ~ ., data = data, trace = FALSE)
+
+Coefficients:
+               (Intercept)         age   gendermale       height     weight
+Sitting        -0.12689925 -0.00300336 -0.054325510 -0.140648898 0.13984018
+Self Pace walk -0.08947963  0.09576222 -0.390330744 -0.009378989 0.09430275
+Running 3 METs -0.06759420  0.03967581 -0.203856347 -0.034510373 0.08206323
+Running 5 METs -0.02855607  0.10371616 -0.260675911  0.022686221 0.15783870
+Running 7 METs -0.07233847  0.01410121 -0.009291162  0.048267246 0.03330346
+                     steps  calories    distance entropy_heart entropy_setps
+Sitting        0.146755794 0.5117823  0.17760730    0.11890680    0.08693147
+Self Pace walk 0.009588875 1.2901735 -0.03321051    0.13659810    0.05729506
+Running 3 METs 0.071294188 1.3766418 -0.11642157    0.11011123    0.23604254
+Running 5 METs 0.166625341 1.5806105 -0.07580569    0.22412573    0.29019829
+Running 7 METs 0.284060361 0.9263697  0.09568884   -0.09649329    0.02247571
+               resting_heart corr_heart_steps sd_norm_heart
+Sitting          -0.14456095       -0.2334348   -0.22860628
+Self Pace walk   -0.20219029       -0.5669717   -0.76197716
+Running 3 METs   -0.16508440       -0.4037949   -0.59520740
+Running 5 METs   -0.15198930       -0.5307800   -0.17825103
+Running 7 METs   -0.02578183        0.3150626    0.07489851
+               steps_times_distance       PC1
+Sitting                 -0.15420719 0.1519565
+Self Pace walk           0.02929409 0.3573074
+Running 3 METs           0.04771858 0.4452008
+Running 5 METs          -0.14248953 0.5526715
+Running 7 METs          -0.25787388 0.5672729
+
+Residual Deviance: 14955.98 
+AIC: 15105.98 </code></pre>
+</div>
+</div>
+</section>
+<section id="predict" class="level4">
+<h4 class="anchored" data-anchor-id="predict">predict</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>multinom_pred <span class="ot">&lt;-</span> <span class="fu">augment</span>(multinom_fit, test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `...1` -&gt; `...8`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>multinom_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,569 × 26
+   .pred_class    .pred_Lying .pred_Sitting `.pred_Self Pace walk`
+   &lt;fct&gt;                &lt;dbl&gt;         &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 Lying                0.261         0.179                 0.114 
+ 2 Lying                0.248         0.176                 0.117 
+ 3 Lying                0.248         0.175                 0.117 
+ 4 Lying                0.246         0.175                 0.117 
+ 5 Lying                0.242         0.174                 0.117 
+ 6 Running 3 METs       0.149         0.169                 0.217 
+ 7 Running 3 METs       0.175         0.170                 0.173 
+ 8 Running 3 METs       0.187         0.173                 0.155 
+ 9 Lying                0.318         0.196                 0.0916
+10 Lying                0.354         0.207                 0.0911
+# ℹ 1,559 more rows
+# ℹ 22 more variables: `.pred_Running 3 METs` &lt;dbl&gt;,
+#   `.pred_Running 5 METs` &lt;dbl&gt;, `.pred_Running 7 METs` &lt;dbl&gt;, ...8 &lt;dbl&gt;,
+#   age &lt;dbl&gt;, gender &lt;fct&gt;, height &lt;dbl&gt;, weight &lt;dbl&gt;, steps &lt;dbl&gt;,
+#   hear_rate &lt;dbl&gt;, calories &lt;dbl&gt;, distance &lt;dbl&gt;, entropy_heart &lt;dbl&gt;,
+#   entropy_setps &lt;dbl&gt;, resting_heart &lt;dbl&gt;, corr_heart_steps &lt;dbl&gt;,
+#   norm_heart &lt;dbl&gt;, intensity_karvonen &lt;dbl&gt;, sd_norm_heart &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>multinom_pred <span class="sc">|&gt;</span> <span class="fu">accuracy</span>(.pred_class,activity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric  .estimator .estimate
+  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+1 accuracy multiclass     0.324</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sensitivity</span>(multinom_pred, activity,.pred_class,<span class="at">estimator=</span><span class="st">'macro'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric     .estimator .estimate
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+1 sensitivity macro          0.296</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">specificity</span>(multinom_pred, activity, .pred_class, <span class="at">estimator=</span><span class="st">'macro'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric     .estimator .estimate
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+1 specificity macro          0.862</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(multinom_pred, activity, .pred_Lying, .pred_Sitting,<span class="st">`</span><span class="at">.pred_Self Pace walk</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 3 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 5 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 7 METs</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc hand_till      0.689</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_curve</span>(multinom_pred, activity, .pred_Lying, .pred_Sitting,<span class="st">`</span><span class="at">.pred_Self Pace walk</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 3 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 5 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 7 METs</span><span class="st">`</span>) <span class="sc">|&gt;</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="knn-tune" class="level4">
+<h4 class="anchored" data-anchor-id="knn-tune">knn tune</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>knn_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> <span class="fu">add_model</span>(kknn_spec) <span class="sc">|&gt;</span> <span class="fu">add_recipe</span>(knn_rec)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>tuning <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(knn_wflow, <span class="at">resamples =</span> vfold, <span class="at">grid=</span><span class="dv">20</span>,<span class="at">control=</span>control)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(tuning)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_best</span>(tuning,<span class="at">metric =</span> <span class="st">'accuracy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  neighbors .metric  .estimator  mean     n std_err .config              
+      &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+1         1 accuracy multiclass 0.737     5 0.00874 Preprocessor1_Model01
+2         2 accuracy multiclass 0.737     5 0.00874 Preprocessor1_Model02
+3         3 accuracy multiclass 0.737     5 0.00874 Preprocessor1_Model03
+4         4 accuracy multiclass 0.737     5 0.00874 Preprocessor1_Model04
+5         5 accuracy multiclass 0.727     5 0.00954 Preprocessor1_Model05</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(tuning)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 45 × 7
+   neighbors .metric     .estimator  mean     n std_err .config              
+       &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+ 1         1 accuracy    multiclass 0.737     5 0.00874 Preprocessor1_Model01
+ 2         1 brier_class multiclass 0.263     5 0.00874 Preprocessor1_Model01
+ 3         1 roc_auc     hand_till  0.843     5 0.00509 Preprocessor1_Model01
+ 4         2 accuracy    multiclass 0.737     5 0.00874 Preprocessor1_Model02
+ 5         2 brier_class multiclass 0.233     5 0.00698 Preprocessor1_Model02
+ 6         2 roc_auc     hand_till  0.882     5 0.00412 Preprocessor1_Model02
+ 7         3 accuracy    multiclass 0.737     5 0.00874 Preprocessor1_Model03
+ 8         3 brier_class multiclass 0.217     5 0.00599 Preprocessor1_Model03
+ 9         3 roc_auc     hand_till  0.896     5 0.00315 Preprocessor1_Model03
+10         4 accuracy    multiclass 0.737     5 0.00874 Preprocessor1_Model04
+# ℹ 35 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_predictions</span>(tuning) <span class="sc">|&gt;</span> <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> <span class="fu">roc_curve</span>(activity, .pred_Lying, .pred_Sitting,<span class="st">`</span><span class="at">.pred_Self Pace walk</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 3 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 5 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 7 METs</span><span class="st">`</span>) <span class="sc">|&gt;</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>best_knn_param <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tuning,<span class="at">metric =</span> <span class="st">'roc_auc'</span>)</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>best_wflow <span class="ot">&lt;-</span> <span class="fu">finalize_workflow</span>(knn_wflow, best_knn_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="knn-fit-and-predict" class="level4">
+<h4 class="anchored" data-anchor-id="knn-fit-and-predict">knn fit and predict</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>knn_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(best_wflow, train)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>knn_fit <span class="sc">|&gt;</span> <span class="fu">extract_fit_engine</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(7L,     data, 5))
+
+Type of response variable: nominal
+Minimal misclassification: 0.2604899
+Best kernel: optimal
+Best k: 7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(knn_fit, test) <span class="sc">|&gt;</span> <span class="fu">accuracy</span>(.pred_class, activity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `...1` -&gt; `...8`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric  .estimator .estimate
+  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+1 accuracy multiclass     0.752</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(knn_fit, test) <span class="sc">|&gt;</span><span class="fu">sensitivity</span>( activity,.pred_class,<span class="at">estimator=</span><span class="st">'macro'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `...1` -&gt; `...8`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric     .estimator .estimate
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+1 sensitivity macro          0.751</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(knn_fit, test) <span class="sc">|&gt;</span><span class="fu">specificity</span>( activity, .pred_class, <span class="at">estimator=</span><span class="st">'macro'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `...1` -&gt; `...8`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric     .estimator .estimate
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+1 specificity macro          0.950</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(knn_fit, test) <span class="sc">|&gt;</span><span class="fu">roc_auc</span>(activity, .pred_Lying, .pred_Sitting,<span class="st">`</span><span class="at">.pred_Self Pace walk</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 3 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 5 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 7 METs</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `...1` -&gt; `...8`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc hand_till      0.925</code></pre>
+</div>
+</div>
+</section>
+<section id="random-forest-tune" class="level4">
+<h4 class="anchored" data-anchor-id="random-forest-tune">random forest tune</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>rand_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> <span class="fu">add_model</span>(rand_forest_spec) <span class="sc">|&gt;</span> <span class="fu">add_recipe</span>(rand_rec)</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>rand_tuning <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(rand_wflow, vfold, <span class="at">grid=</span><span class="dv">10</span>, <span class="at">control=</span>control)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>i Creating pre-processing data to finalize unknown parameter: mtry</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(rand_tuning)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_best</span>(rand_tuning, <span class="at">metric=</span><span class="st">'accuracy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+   mtry min_n .metric  .estimator  mean     n std_err .config              
+  &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+1    12     6 accuracy multiclass 0.829     5 0.00438 Preprocessor1_Model03
+2    16     5 accuracy multiclass 0.821     5 0.00541 Preprocessor1_Model06
+3    11    12 accuracy multiclass 0.820     5 0.00463 Preprocessor1_Model05
+4    14    15 accuracy multiclass 0.804     5 0.00419 Preprocessor1_Model02
+5     8    20 accuracy multiclass 0.802     5 0.00546 Preprocessor1_Model01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(rand_tuning)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30 × 8
+    mtry min_n .metric     .estimator  mean     n std_err .config              
+   &lt;int&gt; &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+ 1     8    20 accuracy    multiclass 0.802     5 0.00546 Preprocessor1_Model01
+ 2     8    20 brier_class multiclass 0.165     5 0.00257 Preprocessor1_Model01
+ 3     8    20 roc_auc     hand_till  0.967     5 0.00157 Preprocessor1_Model01
+ 4    14    15 accuracy    multiclass 0.804     5 0.00419 Preprocessor1_Model02
+ 5    14    15 brier_class multiclass 0.156     5 0.00274 Preprocessor1_Model02
+ 6    14    15 roc_auc     hand_till  0.967     5 0.00162 Preprocessor1_Model02
+ 7    12     6 accuracy    multiclass 0.829     5 0.00438 Preprocessor1_Model03
+ 8    12     6 brier_class multiclass 0.136     5 0.00286 Preprocessor1_Model03
+ 9    12     6 roc_auc     hand_till  0.974     5 0.00159 Preprocessor1_Model03
+10     2    39 accuracy    multiclass 0.750     5 0.00768 Preprocessor1_Model04
+# ℹ 20 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_predictions</span>(rand_tuning) <span class="sc">|&gt;</span> <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> <span class="fu">roc_curve</span>(activity, .pred_Lying, .pred_Sitting,<span class="st">`</span><span class="at">.pred_Self Pace walk</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 3 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 5 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 7 METs</span><span class="st">`</span>) <span class="sc">|&gt;</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="apple_fit_watch_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>best_rand_param <span class="ot">&lt;-</span> <span class="fu">select_best</span>(rand_tuning,<span class="at">metric =</span> <span class="st">'roc_auc'</span>)</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>best_rand_wflow <span class="ot">&lt;-</span> <span class="fu">finalize_workflow</span>(rand_wflow, best_rand_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rand-forest-fit-and-predict" class="level4">
+<h4 class="anchored" data-anchor-id="rand-forest-fit-and-predict">rand forest fit and predict</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>rand_fit <span class="ot">&lt;-</span> <span class="fu">last_fit</span>(best_rand_wflow, split)</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(rand_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  .metric     .estimator .estimate .config             
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 accuracy    multiclass     0.850 Preprocessor1_Model1
+2 roc_auc     hand_till      0.978 Preprocessor1_Model1
+3 brier_class multiclass     0.124 Preprocessor1_Model1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_predictions</span>(rand_fit) <span class="sc">|&gt;</span> <span class="fu">accuracy</span>(.pred_class, activity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric  .estimator .estimate
+  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+1 accuracy multiclass     0.850</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_predictions</span>(rand_fit)<span class="sc">|&gt;</span><span class="fu">sensitivity</span>( activity,.pred_class,<span class="at">estimator=</span><span class="st">'macro'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric     .estimator .estimate
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+1 sensitivity macro          0.850</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_predictions</span>(rand_fit)<span class="sc">|&gt;</span><span class="fu">specificity</span>( activity, .pred_class, <span class="at">estimator=</span><span class="st">'macro'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric     .estimator .estimate
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+1 specificity macro          0.970</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_predictions</span>(rand_fit)<span class="sc">|&gt;</span><span class="fu">roc_auc</span>(activity, .pred_Lying, .pred_Sitting,<span class="st">`</span><span class="at">.pred_Self Pace walk</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 3 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 5 METs</span><span class="st">`</span>,<span class="st">`</span><span class="at">.pred_Running 7 METs</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc hand_till      0.978</code></pre>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
