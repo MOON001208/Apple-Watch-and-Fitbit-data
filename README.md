@@ -134,7 +134,6 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 
 ---
 
-![Image](https://github.com/user-attachments/assets/7bebcd1c-c0a6-4ce8-adec-e2f8f503386f)
 
 
 
@@ -143,6 +142,8 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 ### **K-Nearest-Neighbor 결과**
 
 - 전처리 : 데이터 간의 거리의 개념을 이용한 만큼 데이터끼리의 scale을 동일하게 만들기 위해서 표준화 변환과 성별의 더미변수 처리.
+- ![Image](https://github.com/user-attachments/assets/7bebcd1c-c0a6-4ce8-adec-e2f8f503386f)
+
 ![Image](https://github.com/user-attachments/assets/f6a19cbc-69aa-47c6-b55d-71d98a01d089)
 
 knn 모델의 경우에는 이웃의 개수인 k를 하이퍼 파라미터로 지정하였으며 랜덤 grid 15(1~15)개를 생성하여 최적의 하이퍼파라미터를 찾아주었다.  그 중 accuracy 기준 k가 4일 때 성능이 가장 좋은 것으로 나왔으며 각 activity별로 roc_curve를 그려보면 이 모델은 Running 3 METs와 Running 7METs에서 좋은 성능을 보여주는 것을 볼 수 있다.
