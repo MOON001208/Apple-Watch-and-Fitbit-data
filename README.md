@@ -66,7 +66,8 @@
 
 ### 성별에 따른 활동지표
 
-![Image](https://github.com/user-attachments/assets/e09e9591-e235-4121-ab7f-b8ff869f8040)
+![Image](https://github.com/user-attachments/assets/3a2b90b6-b5df-49d8-ba02-86dae7817174)
+
 
 여성의 표본이 많아서 그런지 전체적으로 여자가 운동을 더 많이 하는 것으로 나타났다.
 
@@ -74,26 +75,28 @@
 
 ### 나이에 따른 걸음수
 
-![image.png](attachment:48e51c7a-1e99-4948-90f5-7bcfdd5a02e9:image.png)
+![Image](https://github.com/user-attachments/assets/05ce3795-bf37-4bc3-aa55-108d0bcfd896)
 
 대체로 젊을 수록 걸음 수가 많다. 하지만 20대 후반과 30대 중반에서 걸음수가 적은걸 확인할 수 있다. 직장인이 많기때문일까? 40대 초반 데이터는 없는 것으로 확인된다.
 
 ### 그래서 나이대별로 활동량이 다른지 확인을 해보고싶었다.
+![Image](https://github.com/user-attachments/assets/8e6314c2-2f91-4a4c-88ac-ca4ab7f8d1c6)
 
-![image.png](attachment:5a021c11-d50f-4eb7-833b-3bdafa535f60:image.png)
+
 
 20대와 30대의 데이터가 가장 많은 것을 확인해 볼 수 있다. 모든 연령대에서 Lying이 가장 높다. 20대 30대에서 7 METs와 5 METs의 빈도가 많이 높고 self pace walk가 가장 적다. 10대에서는 3 METs가 가장 높게 나타났다. 반면에 40대와 50대는 지표가 비슷한 것으로 확인된다. 달리는 지표가 많은 연령대인 10대~30대의 걸음수가 많은 것은 당연한 것 같다.
 
 ### 걸음수와 활동유형의 관계가 있을까?
 
-![image.png](attachment:48c50e76-46b1-44d9-86d1-ecea28bc782a:image.png)
+![Image](https://github.com/user-attachments/assets/2136be23-6cd3-4cbb-821a-7f30edbfffc8)
 
 활동량이 많아 질수록 높은 걸음수가 있는 것을 알 수 있다.
 
 ## 예측 모델링 수립
-![Image](https://github.com/user-attachments/assets/05ce3795-bf37-4bc3-aa55-108d0bcfd896)
 
-![Image](https://github.com/user-attachments/assets/8e6314c2-2f91-4a4c-88ac-ca4ab7f8d1c6)
+![Image](https://github.com/user-attachments/assets/5f4b1a82-d9ad-4ab8-b5d9-435a8b42a6b7)
+
+![Image](https://github.com/user-attachments/assets/4d6fa30a-520a-43cf-b2d7-255aee3faeb8)
 
 전체적으로 각 변수들의 분포는 한쪽으로 치우쳐져있음을 확인, 표준화 변환을 통하여 변수 안정화를 만들어서 분석할 것임.
 
@@ -105,9 +108,10 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 
 ---
 
-![Image](https://github.com/user-attachments/assets/2136be23-6cd3-4cbb-821a-7f30edbfffc8)
+![Image](https://github.com/user-attachments/assets/6fdfbcd3-e4a3-4de8-9bf2-9cfdb6c1f345)
 
-![Image](https://github.com/user-attachments/assets/5f4b1a82-d9ad-4ab8-b5d9-435a8b42a6b7)
+![Image](https://github.com/user-attachments/assets/7bebcd1c-c0a6-4ce8-adec-e2f8f503386f)
+
 
 
 ### **로지스틱 회귀분석 모델 예측결과**
@@ -132,18 +136,21 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 
 ---
 
-![Image](https://github.com/user-attachments/assets/4d6fa30a-520a-43cf-b2d7-255aee3faeb8)
+![Image](https://github.com/user-attachments/assets/f6a19cbc-69aa-47c6-b55d-71d98a01d089)
 
 
 ### **K-Nearest-Neighbor 결과**
 
 - 전처리 : 데이터 간의 거리의 개념을 이용한 만큼 데이터끼리의 scale을 동일하게 만들기 위해서 표준화 변환과 성별의 더미변수 처리.
 
-![Image](https://github.com/user-attachments/assets/6fdfbcd3-e4a3-4de8-9bf2-9cfdb6c1f345)
+![Image](https://github.com/user-attachments/assets/aeb59209-b87c-448d-8e1e-508e04bdeaca)
+
+
 
 knn 모델의 경우에는 이웃의 개수인 k를 하이퍼 파라미터로 지정하였으며 랜덤 grid 15(1~15)개를 생성하여 최적의 하이퍼파라미터를 찾아주었다.  그 중 accuracy 기준 k가 4일 때 성능이 가장 좋은 것으로 나왔으며 각 activity별로 roc_curve를 그려보면 이 모델은 Running 3 METs와 Running 7METs에서 좋은 성능을 보여주는 것을 볼 수 있다.
 
-![image.png](attachment:d43b9584-8ab5-4f9e-aa10-84d04a588a37:image.png)
+![Image](https://github.com/user-attachments/assets/ccae2740-db85-431f-bb8c-f31513d3afc5)
+
 
 
 ### **K-Nearest-Neighbor 모델 예측결과**
@@ -152,11 +159,9 @@ test데이터에 대하여 예측 결과 모든 지표가 로지스틱 회귀분
 
 ---
 
-![Image](https://github.com/user-attachments/assets/f6a19cbc-69aa-47c6-b55d-71d98a01d089)
+![Image](https://github.com/user-attachments/assets/6fe43794-7937-46b2-83cd-34369bc64c44)
 
-
-![Image](https://github.com/user-attachments/assets/aeb59209-b87c-448d-8e1e-508e04bdeaca)
-
+![Image](https://github.com/user-attachments/assets/cdb63205-f1e9-44a2-a9c8-fc70f64ede1a)
 ### **랜덤포레스트 분석결과**
 
 - 전처리 : 아무런 조치를 하지 않아도 모델의 성능이 준수하게 나오므로 전처리 안함.
