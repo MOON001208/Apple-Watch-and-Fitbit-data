@@ -148,7 +148,7 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 
 knn 모델의 경우에는 이웃의 개수인 k를 하이퍼 파라미터로 지정하였으며 랜덤 grid 15(1~15)개를 생성하여 최적의 하이퍼파라미터를 찾아주었다.  그 중 accuracy 기준 k가 4일 때 성능이 가장 좋은 것으로 나왔으며 각 activity별로 roc_curve를 그려보면 이 모델은 Running 3 METs와 Running 7METs에서 좋은 성능을 보여주는 것을 볼 수 있다.
 
-![image.png](attachment:6da5ac20-acb4-478c-9530-0783ca245cd4:image.png)
+![Image](https://github.com/user-attachments/assets/4943fc0f-d41d-430c-b10f-36d3189b7cfe)
 
 ### **K-Nearest-Neighbor 모델 예측결과**
 
@@ -156,9 +156,8 @@ test데이터에 대하여 예측 결과 모든 지표가 로지스틱 회귀분
 
 ---
 
-![image.png](attachment:96b280fc-e821-471b-bae1-a411bf0b1971:image.png)
 
-![image.png](attachment:3d4c2d6b-1f8f-4943-98a8-31fe513832a9:image.png)
+![Image](https://github.com/user-attachments/assets/8056feea-48e3-409c-be61-c77cae7f2a24)
 
 ### **랜덤포레스트 분석결과**
 
@@ -178,13 +177,11 @@ test데이터에 대하여 예측 결과 모든 지표가 로지스틱 회귀분
 
 ### **랜덤 포레스트 모델 예측결과**
 
-![image.png](attachment:5d442e3c-766a-471f-a429-a45712f94e36:image.png)
-
-![image.png](attachment:918f3c9d-4fb4-48e3-bc34-2746f002af76:image.png)
+![Image](https://github.com/user-attachments/assets/34781d6f-d9d6-44da-9754-7ee7f8920a4a)
 
 랜덤포레스트를 이용하여 test 데이터에 대한 예측 결과 다른 모델에 비해서 성능이 훨씬 좋은 것으로 판단된다.
 
-![image.png](attachment:7666db52-0c05-4c48-a90f-c670d60be8b5:image.png)
+![Image](https://github.com/user-attachments/assets/8f2766e7-2760-46d0-b534-004086340f5f)
 
 마지막으로 랜덤 포레스트 모델에 대하여 각 예측변수의 영향력을 시각화 해보면 활동 상태를 예측하는 것에 가장 영향력이 큰 것은 steps 걸음수 이며 그다음 calories, distance corr_heart_steps 로 나왔다. 
 
