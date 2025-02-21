@@ -109,10 +109,8 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 로지스틱 회귀분석, K-nn, random forest 모델 3가지를 사용하였으며 하이퍼파라미터가 필요한 모델의 경우에는 5-folds resampling 기법을 이용하여 5개의 리샘플링과 랜덤 grid search 기법으로 최적 하이퍼 파라미터를 탐색했다.
 
 ---
-
-![image.png](attachment:61ac43c7-ebc6-4302-bd8b-7d886162dfdc:image.png)
-
-![image.png](attachment:4bafc696-199a-4d36-88d2-caa3eb40ad82:image.png)
+![Image](https://github.com/user-attachments/assets/cf015bf2-be42-4ca7-965f-08f2d9b6f745)
+![Image](https://github.com/user-attachments/assets/d25487e9-fd32-4bac-825b-eda1a39796d0)
 
 ### **로지스틱 회귀분석 모델 예측결과**
 
