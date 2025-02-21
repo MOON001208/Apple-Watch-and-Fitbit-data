@@ -66,7 +66,7 @@
 
 ### 성별에 따른 활동지표
 
-![image.png](attachment:51b60963-df6e-4e2e-bae9-3dcb5306cc07:image.png)
+![Image](https://github.com/user-attachments/assets/e09e9591-e235-4121-ab7f-b8ff869f8040)
 
 여성의 표본이 많아서 그런지 전체적으로 여자가 운동을 더 많이 하는 것으로 나타났다.
 
