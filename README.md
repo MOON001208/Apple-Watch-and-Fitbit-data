@@ -66,8 +66,7 @@
 
 ### 성별에 따른 활동지표
 
-![Image](https://github.com/user-attachments/assets/3a2b90b6-b5df-49d8-ba02-86dae7817174)
-
+![image.png](attachment:51b60963-df6e-4e2e-bae9-3dcb5306cc07:image.png)
 
 여성의 표본이 많아서 그런지 전체적으로 여자가 운동을 더 많이 하는 것으로 나타났다.
 
@@ -75,28 +74,27 @@
 
 ### 나이에 따른 걸음수
 
-![Image](https://github.com/user-attachments/assets/05ce3795-bf37-4bc3-aa55-108d0bcfd896)
+![image.png](attachment:48e51c7a-1e99-4948-90f5-7bcfdd5a02e9:image.png)
 
 대체로 젊을 수록 걸음 수가 많다. 하지만 20대 후반과 30대 중반에서 걸음수가 적은걸 확인할 수 있다. 직장인이 많기때문일까? 40대 초반 데이터는 없는 것으로 확인된다.
 
 ### 그래서 나이대별로 활동량이 다른지 확인을 해보고싶었다.
-![Image](https://github.com/user-attachments/assets/8e6314c2-2f91-4a4c-88ac-ca4ab7f8d1c6)
 
-
+![image.png](attachment:5a021c11-d50f-4eb7-833b-3bdafa535f60:image.png)
 
 20대와 30대의 데이터가 가장 많은 것을 확인해 볼 수 있다. 모든 연령대에서 Lying이 가장 높다. 20대 30대에서 7 METs와 5 METs의 빈도가 많이 높고 self pace walk가 가장 적다. 10대에서는 3 METs가 가장 높게 나타났다. 반면에 40대와 50대는 지표가 비슷한 것으로 확인된다. 달리는 지표가 많은 연령대인 10대~30대의 걸음수가 많은 것은 당연한 것 같다.
 
 ### 걸음수와 활동유형의 관계가 있을까?
 
-![Image](https://github.com/user-attachments/assets/2136be23-6cd3-4cbb-821a-7f30edbfffc8)
+![image.png](attachment:48c50e76-46b1-44d9-86d1-ecea28bc782a:image.png)
 
 활동량이 많아 질수록 높은 걸음수가 있는 것을 알 수 있다.
 
 ## 예측 모델링 수립
 
-![Image](https://github.com/user-attachments/assets/5f4b1a82-d9ad-4ab8-b5d9-435a8b42a6b7)
+![unnamed-chunk-10-2.png](attachment:d548edc1-9438-474f-8fa7-f69ca8d41d29:unnamed-chunk-10-2.png)
 
-![Image](https://github.com/user-attachments/assets/4d6fa30a-520a-43cf-b2d7-255aee3faeb8)
+![unnamed-chunk-10-1.png](attachment:700835ff-28d8-47b0-8574-09a4562a63a2:unnamed-chunk-10-1.png)
 
 전체적으로 각 변수들의 분포는 한쪽으로 치우쳐져있음을 확인, 표준화 변환을 통하여 변수 안정화를 만들어서 분석할 것임.
 
@@ -108,11 +106,9 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 
 ---
 
-![Image](https://github.com/user-attachments/assets/6fdfbcd3-e4a3-4de8-9bf2-9cfdb6c1f345)
+![image.png](attachment:61ac43c7-ebc6-4302-bd8b-7d886162dfdc:image.png)
 
-![Image](https://github.com/user-attachments/assets/7bebcd1c-c0a6-4ce8-adec-e2f8f503386f)
-
-
+![image.png](attachment:4bafc696-199a-4d36-88d2-caa3eb40ad82:image.png)
 
 ### **로지스틱 회귀분석 모델 예측결과**
 
@@ -136,22 +132,17 @@ hear_rate,norm_heart,intensity_karvonen 변수끼리 상관관계가 높은 편�
 
 ---
 
-![Image](https://github.com/user-attachments/assets/f6a19cbc-69aa-47c6-b55d-71d98a01d089)
-
+![image.png](attachment:d43b9584-8ab5-4f9e-aa10-84d04a588a37:image.png)
 
 ### **K-Nearest-Neighbor 결과**
 
 - 전처리 : 데이터 간의 거리의 개념을 이용한 만큼 데이터끼리의 scale을 동일하게 만들기 위해서 표준화 변환과 성별의 더미변수 처리.
 
-![Image](https://github.com/user-attachments/assets/aeb59209-b87c-448d-8e1e-508e04bdeaca)
-
-
+![image.png](attachment:66e37321-44d8-4103-a4d4-1c811ce4ce6b:image.png)
 
 knn 모델의 경우에는 이웃의 개수인 k를 하이퍼 파라미터로 지정하였으며 랜덤 grid 15(1~15)개를 생성하여 최적의 하이퍼파라미터를 찾아주었다.  그 중 accuracy 기준 k가 4일 때 성능이 가장 좋은 것으로 나왔으며 각 activity별로 roc_curve를 그려보면 이 모델은 Running 3 METs와 Running 7METs에서 좋은 성능을 보여주는 것을 볼 수 있다.
 
-![Image](https://github.com/user-attachments/assets/ccae2740-db85-431f-bb8c-f31513d3afc5)
-
-
+![image.png](attachment:6da5ac20-acb4-478c-9530-0783ca245cd4:image.png)
 
 ### **K-Nearest-Neighbor 모델 예측결과**
 
@@ -159,9 +150,10 @@ test데이터에 대하여 예측 결과 모든 지표가 로지스틱 회귀분
 
 ---
 
-![Image](https://github.com/user-attachments/assets/6fe43794-7937-46b2-83cd-34369bc64c44)
+![image.png](attachment:96b280fc-e821-471b-bae1-a411bf0b1971:image.png)
 
-![Image](https://github.com/user-attachments/assets/cdb63205-f1e9-44a2-a9c8-fc70f64ede1a)
+![image.png](attachment:3d4c2d6b-1f8f-4943-98a8-31fe513832a9:image.png)
+
 ### **랜덤포레스트 분석결과**
 
 - 전처리 : 아무런 조치를 하지 않아도 모델의 성능이 준수하게 나오므로 전처리 안함.
@@ -180,14 +172,13 @@ test데이터에 대하여 예측 결과 모든 지표가 로지스틱 회귀분
 
 ### **랜덤 포레스트 모델 예측결과**
 
-![Image](https://github.com/user-attachments/assets/ccae2740-db85-431f-bb8c-f31513d3afc5)
+![image.png](attachment:5d442e3c-766a-471f-a429-a45712f94e36:image.png)
 
-![Image](https://github.com/user-attachments/assets/6fe43794-7937-46b2-83cd-34369bc64c44)
-
+![image.png](attachment:918f3c9d-4fb4-48e3-bc34-2746f002af76:image.png)
 
 랜덤포레스트를 이용하여 test 데이터에 대한 예측 결과 다른 모델에 비해서 성능이 훨씬 좋은 것으로 판단된다.
 
-![Image](https://github.com/user-attachments/assets/cdb63205-f1e9-44a2-a9c8-fc70f64ede1a)
+![image.png](attachment:7666db52-0c05-4c48-a90f-c670d60be8b5:image.png)
 
 마지막으로 랜덤 포레스트 모델에 대하여 각 예측변수의 영향력을 시각화 해보면 활동 상태를 예측하는 것에 가장 영향력이 큰 것은 steps 걸음수 이며 그다음 calories, distance corr_heart_steps 로 나왔다. 
 
@@ -204,34 +195,3 @@ test데이터에 대하여 예측 결과 모든 지표가 로지스틱 회귀분
 간단한 데이터를 통하여 바이오 데이터에 대한 머신러닝 기법을 사용할 수 있게 되었다.
 
 다중 분류에 대한 모형 평가 지표에 대해서 공부할 수 있는 계기가 되었으며 앞으로 있을 바이오 데이터에 대한 딥러닝과 머신러닝 분석의 시작점으로 다양한 분석 기법을 적용하여 바이오 데이터 분석가로 성장 할 수 있는 계기가 될 것이다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
