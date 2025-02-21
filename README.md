@@ -66,7 +66,8 @@
 
 ### 성별에 따른 활동지표
 
-![image.png](attachment:51b60963-df6e-4e2e-bae9-3dcb5306cc07:image.png)
+![Image](https://github.com/user-attachments/assets/3a2b90b6-b5df-49d8-ba02-86dae7817174)
+
 
 여성의 표본이 많아서 그런지 전체적으로 여자가 운동을 더 많이 하는 것으로 나타났다.
 
@@ -74,27 +75,30 @@
 
 ### 나이에 따른 걸음수
 
-![image.png](attachment:48e51c7a-1e99-4948-90f5-7bcfdd5a02e9:image.png)
+
+![Image](https://github.com/user-attachments/assets/05ce3795-bf37-4bc3-aa55-108d0bcfd896)
+
+
 
 대체로 젊을 수록 걸음 수가 많다. 하지만 20대 후반과 30대 중반에서 걸음수가 적은걸 확인할 수 있다. 직장인이 많기때문일까? 40대 초반 데이터는 없는 것으로 확인된다.
 
 ### 그래서 나이대별로 활동량이 다른지 확인을 해보고싶었다.
 
-![image.png](attachment:5a021c11-d50f-4eb7-833b-3bdafa535f60:image.png)
+![Image](https://github.com/user-attachments/assets/8e6314c2-2f91-4a4c-88ac-ca4ab7f8d1c6)
+
 
 20대와 30대의 데이터가 가장 많은 것을 확인해 볼 수 있다. 모든 연령대에서 Lying이 가장 높다. 20대 30대에서 7 METs와 5 METs의 빈도가 많이 높고 self pace walk가 가장 적다. 10대에서는 3 METs가 가장 높게 나타났다. 반면에 40대와 50대는 지표가 비슷한 것으로 확인된다. 달리는 지표가 많은 연령대인 10대~30대의 걸음수가 많은 것은 당연한 것 같다.
 
 ### 걸음수와 활동유형의 관계가 있을까?
-
-![image.png](attachment:48c50e76-46b1-44d9-86d1-ecea28bc782a:image.png)
+![Image](https://github.com/user-attachments/assets/2136be23-6cd3-4cbb-821a-7f30edbfffc8)
 
 활동량이 많아 질수록 높은 걸음수가 있는 것을 알 수 있다.
 
 ## 예측 모델링 수립
 
-![unnamed-chunk-10-2.png](attachment:d548edc1-9438-474f-8fa7-f69ca8d41d29:unnamed-chunk-10-2.png)
+![Image](https://github.com/user-attachments/assets/5f4b1a82-d9ad-4ab8-b5d9-435a8b42a6b7)
 
-![unnamed-chunk-10-1.png](attachment:700835ff-28d8-47b0-8574-09a4562a63a2:unnamed-chunk-10-1.png)
+![Image](https://github.com/user-attachments/assets/4d6fa30a-520a-43cf-b2d7-255aee3faeb8)
 
 전체적으로 각 변수들의 분포는 한쪽으로 치우쳐져있음을 확인, 표준화 변환을 통하여 변수 안정화를 만들어서 분석할 것임.
 
